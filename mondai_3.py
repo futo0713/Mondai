@@ -44,7 +44,6 @@ plt.xlabel("Parameter(W)")
 plt.ylabel("loss value")
 plt.plot(weight, E_loss_weight, color='blue')
 plt.plot(w_itr, E_save, 'o', color='red')
-plt.savefig('figure_{}.png'.format(i))
 plt.show()
 
 #plot_output
@@ -59,8 +58,4 @@ plt.xlabel("input(x)")
 plt.ylabel("output(y)")
 plt.plot(x, t, 'o')
 plt.plot(X_line, Y_line, color='red')
-plt.savefig('output')
 plt.show()
-
-
-
