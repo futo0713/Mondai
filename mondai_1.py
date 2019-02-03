@@ -20,26 +20,42 @@ for i in range(num_of_itr):
     E_save = np.append(E_save, E)
     w = w - learning_rate*2*np.sum(x*(y-t))
 
-#plot
-X_line = np.linspace(0, 2, 5)
-Y_line = w*X_line
+    #plot
+    X_line = np.linspace(0, 2, 5)
+    Y_line = w*X_line
+
+    #plot_output
+    plt.figure(figsize=(10,8),dpi=200)
+    plt.subplots_adjust(left=0.16, right=0.85, bottom=0.18, top=0.85)
+    plt.grid(True)
+    plt.ylim(0,6)
+    plt.title("Deep Learning", fontsize=18)
+    plt.xlabel("input(x)", fontsize=14)
+    plt.ylabel("output(y)", fontsize=14)
+    plt.plot(x, t, 'o')
+    plt.plot(X_line, Y_line, color='red')
+    plt.savefig('figure_{}.png'.format(i))
+    # plt.show()
 
 #plot_output
-plt.figure()
+plt.figure(figsize=(10,8),dpi=200)
+plt.subplots_adjust(left=0.16, right=0.85, bottom=0.18, top=0.85)
 plt.grid(True)
-plt.ylim(0,7)
-plt.title("Deep Learning")
-plt.xlabel("input(x)")
-plt.ylabel("output(y)")
+plt.ylim(0,6)
+plt.title("Deep Learning", fontsize=18)
+plt.xlabel("input(x)", fontsize=14)
+plt.ylabel("output(y)", fontsize=14)
 plt.plot(x, t, 'o')
-plt.plot(X_line, Y_line, color='red')
-plt.show()
+plt.savefig('plain')
+# plt.show()
 
 #plot_loss
-plt.figure()
+plt.figure(figsize=(10,8),dpi=200)
+plt.subplots_adjust(left=0.16, right=0.85, bottom=0.18, top=0.85)
 plt.grid(True)
-plt.title("LOSS FUNCTION")
-plt.xlabel("Iteration number")
-plt.ylabel("loss value")
+plt.title("LOSS FUNCTION", fontsize=18)
+plt.xlabel("Iteration number", fontsize=14)
+plt.ylabel("loss value", fontsize=14)
 plt.plot(E_save)
-plt.show()
+plt.savefig('loss')
+# plt.show()
