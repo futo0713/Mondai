@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 #dataset
-num_of_sum = 30
-x = np.random.uniform(0, 4, num_of_sum)
-noise = np.random.normal(0, 0.5, num_of_sum)
+num_of_sam = 30
+x = np.random.uniform(0, 4, num_of_sam)
+noise = np.random.normal(0, 0.5, num_of_sam)
 t = 2*x+5+noise
 
 #initial_setting

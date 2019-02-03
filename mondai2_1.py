@@ -1,24 +1,26 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-num_of_sum = 40
-x = np.random.uniform(0, 6, num_of_sum)
-noise = np.random.normal(0, 0.1, num_of_sum)
+#dataset
+num_of_sam = 40
+x = np.random.uniform(0, 6, num_of_sam)
+noise = np.random.normal(0, 0.1, num_of_sam)
 t = np.sin(x)+noise
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
+#initial_setting
 dimention = 20
 W1 = np.random.randn(dimention, 1)
 B1 = np.random.randn(dimention, 1)
-
 W2 = np.random.randn(1, dimention)
 B2 = np.random.randn(1, 1)
 
 learning_rate = 0.002
 E_save = []
 
+#iteration
 num_of_itr = 3000
 for i in range(num_of_itr):
     #forward propagation
