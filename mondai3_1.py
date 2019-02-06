@@ -24,11 +24,11 @@ def loss(y, t):
 #initial setting
 W = np.random.randn(2,1)
 
-learning_rate = 0.0002
+learning_rate = 0.002
 E_save = []
 
 #iteration
-num_of_itr = 1
+num_of_itr = 30
 for i in range(num_of_itr):
     #forward propagation
     y = sigmoid(np.dot(X, W))
@@ -36,7 +36,7 @@ for i in range(num_of_itr):
     E_save = np.append(E_save, E)
     #back propagation
     dW = np.sum(X*(y-t),axis=0)
-    W = W - np.reshape(dW,(2,1))
+    W = W - learning_rate*np.reshape(dW,(2,1))
 
 #plot
 grid_range = 5
@@ -59,4 +59,13 @@ plt.xlim(-grid_range, grid_range)
 plt.ylim(-grid_range, grid_range)
 plt.scatter(X_grid[:,0], X_grid[:,1], vmin=0, vmax=1, c=Y_predict[:,0], cmap=cm.bwr, marker='o', s=50,alpha=0.2)
 plt.scatter(X[:,0], X[:,1], vmin=0, vmax=1, c=t[:,0], cmap=cm.bwr, marker='o', s=50)
+plt.show()
+
+#plot_loss
+plt.figure()
+plt.grid(True)
+plt.title("LOSS FUNCTION")
+plt.xlabel("Iteration number")
+plt.ylabel("loss value")
+plt.plot(E_save)
 plt.show()
