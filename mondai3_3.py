@@ -57,17 +57,29 @@ out_connect = np.hstack((X_grid,Y_predict))
 red_group = out_connect[out_connect[:,2]==1]
 blue_group = out_connect[out_connect[:,3]==1]
 
-
+#plot_output
 plt.figure()
 plt.grid(True)
-plt.xlim(-10, 10)
-plt.ylim(-10, 10)
+plt.xlim(-grid_range,grid_range)
+plt.ylim(-grid_range,grid_range)
 
-#plot_dataset
-plt.plot(group1[:,0],group1[:,1], 'o',color='blue')
-plt.plot(group2[:,0],group2[:,1], 'o',color='red')
+plt.scatter(red_group[:,0],red_group[:,1],marker='o',s=50,alpha=0.3,color='red')
+plt.scatter(blue_group[:,0],blue_group[:,1],marker='o',s=50,alpha=0.3,color='blue')
 
-#plot_output
-plt.plot(red_group[:,0],red_group[:,1],'o',alpha=0.3,color='red')
-plt.plot(blue_group[:,0],blue_group[:,1],'o',alpha=0.3,color='blue')
+plt.scatter(group1[:,0],group1[:,1],marker='o',s=50,color='blue')
+plt.scatter(group2[:,0],group2[:,1],marker='o',s=50,color='red')
+plt.show()
+
+#plot_loss
+plt.figure()
+
+plt.title("Loss Function")
+plt.xlabel("iteration number")
+plt.ylabel("loss value")
+
+plt.grid(True)
+plt.xlim(0,num_of_itr)
+plt.ylim(0,50)
+
+plt.plot(E_save)
 plt.show()
